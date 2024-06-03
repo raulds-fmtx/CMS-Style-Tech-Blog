@@ -1,5 +1,5 @@
 document
-  .getElementById("login-form")
+  .getElementById("signup-form")
   .addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -11,7 +11,7 @@ document
       .value.trim();
 
     if (username && password) {
-      const response = await fetch("/api/users/login", {
+      const response = await fetch("/api/users/signup", {
         method: "POST",
         body: JSON.stringify({ username, password }),
         headers: { "Content-Type": "application/json" },
@@ -20,7 +20,7 @@ document
       if (response.ok) {
         document.location.replace("/");
       } else {
-        alert("Failed to log in.");
+        alert("Failed to sign up.");
       }
     }
   });
