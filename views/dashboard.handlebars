@@ -1,15 +1,21 @@
-<button id="add-post-btn">Add New Post</button>
+<button class="button is-primary" id="add-post-btn">Add New Post</button>
 
 {{#if posts.length}}
   {{#each posts}}
-    <div class="post">
-      <h2>{{this.title}}</h2>
-      <p>{{this.createdAt}}</p>
-      <a href="/post/{{this.id}}">Read More</a>
-      <div>
-        <button class="edit-post-btn" data-id="{{this.id}}">Edit</button>
-        <button class="delete-post-btn" data-id="{{this.id}}">Delete</button>
+    <div class="post card">
+      <header class="card-header">
+        <p class="card-header-title">{{this.title}}</p>
+      </header>
+
+      <div class="card-content">
+        <p>{{this.createdAt}}</p>
       </div>
+
+      <footer class="card-footer">
+        <a class="button is-primary" href="/post/{{this.id}}">Read More</a>
+        <button class="button is-light edit-post-btn" data-id="{{this.id}}">Edit</button>
+        <button class="button is-dark delete-post-btn" data-id="{{this.id}}">Delete</button>
+      </footer>
     </div>
   {{/each}}
 {{else}}

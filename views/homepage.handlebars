@@ -1,9 +1,13 @@
 {{#if posts.length}}
   {{#each posts}}
-    <div class="post">
-      <h2>{{this.title}}</h2>
-      <p>By {{this.user.username}} on {{this.createdAt}}</p>
-      <a href="/post/{{this.id}}">Read More</a>
+    <div class="post card">
+      <header class="card-header">
+        <p class="card-header-title">{{this.title}}</p>
+      </header>
+      <footer class="card-footer">
+        <a class="button is-primary" href="/post/{{this.id}}">Read More</a>
+        <p>By {{this.user.username}} on {{this.createdAt}}</p>
+      </footer>
     </div>
   {{/each}}
 {{else}}
